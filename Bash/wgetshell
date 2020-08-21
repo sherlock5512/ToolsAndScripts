@@ -1,0 +1,21 @@
+#!/bin/bash
+
+
+while true; do
+
+    url=''
+
+    uflag=true
+
+    read -p 'wget>' url
+
+    [ -z "$url" ] && exit
+    [ "$url" == "q" ] && exit
+    [ "$url" == "Q" ] && exit
+
+    [ "$url" == "?" ] && echo "Paste in Url and press enter, or type q to quit" && uflag=false
+
+    [ $uflag == true ] && echo "getting $url"
+
+    [ $uflag ] && ts wget $url
+done
